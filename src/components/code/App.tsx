@@ -4,10 +4,9 @@ import HomeScene from '@/scenes/HomeScene';
 import Loader from '@/components/code/Loader';
 import { Suspense } from 'react';
 
-
 const CameraController: React.FC = () => {
   const [scrollY, setScrollY] = useState(0);
-  const MAX_DESCENT = 2.5; // Y mínimo al que puede descender la cámara
+  const MAX_DESCENT = 2.5;
   const DESCENT_SPEED = 20; // Velocidad de descenso
   
   useEffect(() => {
@@ -32,16 +31,15 @@ const CameraController: React.FC = () => {
     // Calcular la posición Y de la cámara
     let currentY = 20;
 
-    // Después de completar la rotación (t >= 1), comenzar a descender
     if (t >= 1) {
-      const descendT = t - 1; // Ajustar t para comenzar desde 0 después de completar la rotación
+      const descendT = t - 1; 
       currentY = MAX_DESCENT - descendT * DESCENT_SPEED;
-      currentY = Math.max(currentY, -20); // Ajustar el valor mínimo permitido para currentY
+      currentY = Math.max(currentY, -20); 
     }
 
     state.camera.position.set(x, currentY, z);
 
-    // Ajustar la orientación de la cámara
+
     if (t >= 1) {
       state.camera.lookAt(x, currentY, z + 1);
     } else {

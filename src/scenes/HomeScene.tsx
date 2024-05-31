@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Environment, OrbitControls, Stars } from '@react-three/drei';
 import { ImageCarousel } from '@/components/ImageCarousel';
 import { ImagePlane } from '@/components';
@@ -24,8 +24,15 @@ import Model16 from '@/components/Phone';
 import Model17 from '@/components/Threes';
 import Model18 from '@/components/Stone';
 
+interface HomeSceneProps {
+  onSceneLoaded: () => void;
+}
 
-const HomeScene: React.FC = () => {
+const HomeScene: React.FC<HomeSceneProps> = ({ onSceneLoaded }) => {
+  useEffect(() => {
+    onSceneLoaded();
+  }, [onSceneLoaded]);
+
   return (
     <>
       <OrbitControls />
