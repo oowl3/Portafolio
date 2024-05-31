@@ -1,0 +1,7 @@
+yarn create vite portafolio-3d_ts --template react-ts
+
+yarn add three @react-three/fiber @react-three/drei meshline meshline
+
+yarn add -D @types/three vite-tsconfig-paths
+
+yarn devS
