@@ -1,33 +1,32 @@
 import * as THREE from 'three';
 import { useRef, useState } from 'react';
 import { useGLTF } from '@react-three/drei';
-import { GLTF } from 'three/examples/jsm/loaders/GLTFLoader';
 import { useFrame } from '@react-three/fiber';
 
 const handleButtonClick = () => {
   window.location.href = '../../public/CV_Ojeda.pdf';
 };
 
-type GLTFResult = GLTF & {
+type GLTFResult =  {
   nodes: {
     Cube1340: THREE.Mesh;
     Cube1340_1: THREE.Mesh;
-  };
+  },
   materials: {
-    ['Blue.009']: THREE.MeshStandardMaterial;
-    ['Metal.016']: THREE.MeshStandardMaterial;
-  };
+    'Blue.009': THREE.Material,
+    'Metal.016': THREE.Material,
+  }
 };
 
 export default function CvButton(props: JSX.IntrinsicElements['group']) {
-  const group = useRef<THREE.Group>();
-  const { nodes, materials } = useGLTF('https://vazxmixjsiawhamofees.supabase.co/storage/v1/object/public/models/button/model.gltf') as GLTFResult;
+  const group = useRef<THREE.Group>(null!);
+  const { nodes, materials } = useGLTF('https://vazxmixjsiawhamofees.supabase.co/storage/v1/object/public/models/button/model.gltf') as unknown as GLTFResult;;
   const [isHovered, setIsHovered] = useState(false);
 
   useFrame((state) => {
     const elapsedTime = state.clock.getElapsedTime();
-    const amplitude = 0.08; // Amplitud de la vibración
-    const frequency = 10; // Frecuencia de la vibración
+    const amplitude = 0.09;
+    const frequency = 10; 
 
     if (isHovered) {
       group.current.rotation.x = Math.sin(elapsedTime * frequency) * amplitude;

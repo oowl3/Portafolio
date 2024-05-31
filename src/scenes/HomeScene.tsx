@@ -9,7 +9,7 @@ import Model1 from '@/components/IconReact';
 import Model2 from '@/components/Keyboard';
 import Model3 from '@/components/Node';
 import Model4 from '@/components/Star';
-import Model5 from '@/components/Duck';
+//import Model5 from '@/components/Duck';
 import Model6 from '@/components/Poster';
 import Model7 from '@/components/Ladder';
 import Model8 from '@/components/Floor';
@@ -46,7 +46,7 @@ const HomeScene: React.FC<HomeSceneProps> = ({ onSceneLoaded }) => {
         <Model1 />
         <Model2 />
         <Model3 />
-        <Model5 />
+        {/* <Model5 /> */}
         <Model4 position={[-6, 1, -3]} />
         <Model4 position={[-5, 2, -3]} />
         <Model4 position={[-4, 1, -3]} />
