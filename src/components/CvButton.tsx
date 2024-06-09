@@ -53,3 +53,4 @@ export default function CvButton(props: JSX.IntrinsicElements['group']) {
     </group>
   );
 }
+useGLTF.preload('https://vazxmixjsiawhamofees.supabase.co/storage/v1/object/public/models/button/model.gltf');

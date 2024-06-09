@@ -25,4 +25,4 @@ export default function Model13(props: Model13Props){
     )
 }
 
-useGLTF.preload('https://vazxmixjsiawhamofees.supabase.co/storage/v1/object/public/models/chair-wood/model.gltf')
+useGLTF.preload('https://vazxmixjsiawhamofees.supabase.co/storage/v1/object/public/models/chair-wood/model.gltf');

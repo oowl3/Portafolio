@@ -29,4 +29,4 @@ export default function Model10(props: Model10Props){
     )
 }
 
-useGLTF.preload('https://vazxmixjsiawhamofees.supabase.co/storage/v1/object/public/models/door-old/model.gltf')
+useGLTF.preload('https://vazxmixjsiawhamofees.supabase.co/storage/v1/object/public/models/door-old/model.gltf');

@@ -45,3 +45,5 @@ export default function Model3(props: JSX.IntrinsicElements['group']) {
         </group>
     )
 }
+
+useGLTF.preload('https://vazxmixjsiawhamofees.supabase.co/storage/v1/object/public/models/node/model.gltf');

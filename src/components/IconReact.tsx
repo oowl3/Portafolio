@@ -66,3 +66,5 @@ export default function Model1(props: JSX.IntrinsicElements['group']) {
         </group>
     )
 }
+
+useGLTF.preload('https://vazxmixjsiawhamofees.supabase.co/storage/v1/object/public/models/react-logo/model.gltf');

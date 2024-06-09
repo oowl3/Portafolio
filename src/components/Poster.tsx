@@ -29,3 +29,5 @@ export default function Model6(props: JSX.IntrinsicElements['group']) {
         </group>
     )
 }
+
+useGLTF.preload('https://vazxmixjsiawhamofees.supabase.co/storage/v1/object/public/models/cutting-board-japanese/model.gltf');

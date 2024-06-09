@@ -25,3 +25,4 @@ export default function Model2(props: JSX.IntrinsicElements['group']) {
     </group>
     )
 }
+useGLTF.preload('https://vazxmixjsiawhamofees.supabase.co/storage/v1/object/public/models/mechanical-keyboard-tenkeyless/model.gltf');
