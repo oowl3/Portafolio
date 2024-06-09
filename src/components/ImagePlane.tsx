@@ -3,7 +3,9 @@ import { useLoader } from '@react-three/fiber';
 import { TextureLoader, Group } from 'three';
 
 export const ImagePlane: React.FC = () => {
-    const texture = useLoader(TextureLoader, '../../public/Portada.PNG');
+    const link = '/Portada.png';
+
+    const texture = useLoader(TextureLoader, link);
     const groupRef = useRef<Group>(null!);
 
     useEffect(() => {
