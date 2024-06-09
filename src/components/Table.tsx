@@ -1,5 +1,6 @@
-import React, { useRef } from 'react'
+import { useRef } from 'react'
 import { useGLTF } from '@react-three/drei'
+
 export default function Model14(props) {
     const group = useRef()
     const { nodes, materials } = useGLTF('https://vazxmixjsiawhamofees.supabase.co/storage/v1/object/public/models/table-wood/model.gltf')

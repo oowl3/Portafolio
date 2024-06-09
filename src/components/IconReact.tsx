@@ -2,9 +2,8 @@ import * as THREE from 'three'
 import { useRef } from 'react'
 import { useFrame } from '@react-three/fiber'
 import { useGLTF } from '@react-three/drei'
-import { GLTF } from "three/examples/jsm/loaders/GLTFLoader"
 
-type GLTFResult = GLTF & {
+type GLTFResult =  {
     nodes: {
         Cube: THREE.Mesh,
         Torus001: THREE.Mesh,
@@ -12,27 +11,23 @@ type GLTFResult = GLTF & {
         Torus003: THREE.Mesh
     },
     materials: {
-        ['default']: THREE.MeshStandardMaterial,
-        ['default']: THREE.MeshStandardMaterial,
-        ['default']: THREE.MeshStandardMaterial,
-        ['default']: THREE.MeshStandardMaterial
+        'default': THREE.MeshStandardMaterial
     }
 }
 
 export default function Model1(props: JSX.IntrinsicElements['group']) {
-    const group = useRef<THREE.Group>()
-    const { nodes } = useGLTF('https://vazxmixjsiawhamofees.supabase.co/storage/v1/object/public/models/react-logo/model.gltf') as GLTFResult
+    const group = useRef<THREE.Group>(null!);
+    const { nodes } = useGLTF('https://vazxmixjsiawhamofees.supabase.co/storage/v1/object/public/models/react-logo/model.gltf') as unknown as GLTFResult;
 
-    // Define the new material with the desired color
     const newMaterial = new THREE.MeshStandardMaterial({ color: '#61dafb' })
 
     // Ref for rotation
-    const meshRef = useRef<THREE.Mesh>()
+    const meshRef = useRef<THREE.Mesh>(null!);
 
     // UseFrame for rotation animation
     useFrame(() => {
         if (meshRef.current) {
-            meshRef.current.rotation.y += 0.009 // Adjust rotation speed here
+            meshRef.current.rotation.y += 0.005
         }
     })
 

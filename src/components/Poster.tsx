@@ -1,25 +1,24 @@
 import * as THREE from 'three'
 import { useRef } from 'react'
 import { useGLTF, Text } from '@react-three/drei'
-import { GLTF } from "three/examples/jsm/loaders/GLTFLoader"
 
-type GLTFResult = GLTF & {
+type GLTFResult = {
     nodes: {
     cuttingBoardJapanese: THREE.Mesh
     
     }
     materials: {
-    brownLight: THREE.MeshStandardMaterial
+    'brownLight': THREE.MeshStandardMaterial
     }
 }
 
 export default function Model6(props: JSX.IntrinsicElements['group']) {
-    const group = useRef<THREE.Group>()
-    const { nodes, materials } = useGLTF('https://vazxmixjsiawhamofees.supabase.co/storage/v1/object/public/models/cutting-board-japanese/model.gltf') as GLTFResult
+    const group = useRef<THREE.Group>(null!);
+    const { nodes, materials } = useGLTF('https://vazxmixjsiawhamofees.supabase.co/storage/v1/object/public/models/cutting-board-japanese/model.gltf') as unknown as GLTFResult;
     return (
         <group ref={group} {...props}  position={[-9, -11.5, -11]}>
             <group position={[0,-3.6,0]}>
-                <mesh geometry={nodes.cuttingBoardJapanese.geometry} material={materials.brownLight} scale={[4,3,5]}  rotation={[Math.PI,Math.PI/2,Math.PI/2]}/>
+                {nodes.cuttingBoardJapanese && <mesh geometry={nodes.cuttingBoardJapanese.geometry} material={materials.brownLight} scale={[4,3,5]}  rotation={[Math.PI,Math.PI/2,Math.PI/2]}/>}
                 <Text position={[0,.5,-.3]} fontSize={.8} color="black" anchorX="center" anchorY="middle" rotation={[0,Math.PI, 0]}>
                     Descargar 
                 </Text>
