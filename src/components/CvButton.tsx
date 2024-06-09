@@ -4,7 +4,7 @@ import { useGLTF } from '@react-three/drei';
 import { useFrame } from '@react-three/fiber';
 
 const handleButtonClick = () => {
-  window.location.href = '../../public/CV_Ojeda.pdf';
+  window.location.href = '/CV_Ojeda.pdf';
 };
 
 type GLTFResult =  {
