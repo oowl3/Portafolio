@@ -11,12 +11,12 @@ interface ImagePlaneProps {
 }
 
 const images = [
-    '/public/Argos.PNG',
-    '/public/Clima_1.PNG',
-    '/public/Clima_2.PNG',
-    '/public/Clima_3.PNG',
-    '/public/Clima_4.PNG',
-    '/public/Reproductor.PNG',
+    '/Argos.PNG',
+    '/Clima_1.PNG',
+    '/Clima_2.PNG',
+    '/Clima_3.PNG',
+    '/Clima_4.PNG',
+    '/Reproductor.PNG',
 ];
 
 const ImagePlane: React.FC<ImagePlaneProps> = ({ texturePath, position, visible }) => {
