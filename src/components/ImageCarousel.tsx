@@ -1,6 +1,14 @@
 import { useEffect, useRef, useState } from 'react';
 import { useLoader } from '@react-three/fiber';
-import { TextureLoader } from 'three';
+import { TextureLoader, Texture } from 'three';
+import { Mesh } from 'three';
+
+// Definimos las propiedades del componente ImagePlane
+interface ImagePlaneProps {
+    texturePath: string;
+    position: [number, number, number];
+    visible: boolean;
+}
 
 const images = [
     '/public/Argos.PNG',
@@ -9,16 +17,18 @@ const images = [
     '/public/Clima_3.PNG',
     '/public/Clima_4.PNG',
     '/public/Reproductor.PNG',
-
 ];
 
-const ImagePlane = ({ texturePath, position, visible }) => {
-    const texture = useLoader(TextureLoader, texturePath);
-    const planeRef = useRef();
+const ImagePlane: React.FC<ImagePlaneProps> = ({ texturePath, position, visible }) => {
+    // Usamos useLoader para cargar la textura
+    const texture = useLoader(TextureLoader, texturePath) as Texture;
+
+    // Usamos useRef con el tipo correcto
+    const planeRef = useRef<Mesh>(null);
 
     useEffect(() => {
-        if (texture) {
-            const textureAspect = texture.image.width / texture.image.height;
+        if (texture && texture.image) {
+            const textureAspect = (texture.image as HTMLImageElement).width / (texture.image as HTMLImageElement).height;
             if (planeRef.current) {
                 planeRef.current.scale.x = textureAspect;
             }
@@ -37,21 +47,18 @@ const ImagePlane = ({ texturePath, position, visible }) => {
             <planeGeometry args={[8, 9]} />
             <meshBasicMaterial
                 map={texture}
-                envMapIntensity={0.5}
-                roughness={0.2}
-                metalness={0.8}
             />
         </mesh>
     );
 };
 
-export const ImageCarousel = () => {
+export const ImageCarousel: React.FC = () => {
     const [currentImageIndex, setCurrentImageIndex] = useState(0);
 
     useEffect(() => {
         const interval = setInterval(() => {
             setCurrentImageIndex((prevIndex) => (prevIndex + 1) % images.length);
-        },5000); 
+        }, 5000); 
 
         return () => clearInterval(interval);
     }, []);
@@ -62,7 +69,7 @@ export const ImageCarousel = () => {
                 <ImagePlane
                     key={index}
                     texturePath={image}
-                    position={[0, 5.2, -.51]} // Colocamos el plano en una posición visible desde [0, 0, -20]
+                    position={[0, 5.2, -0.51]} // Colocamos el plano en una posición visible desde [0, 0, -20]
                     visible={index === currentImageIndex}
                 />
             ))}
