@@ -23,8 +23,9 @@
 html, body, #root {
   margin: 0;
   width: 100%;
-  height: 100%;
+  height: 298vh;
 }
+
 
 * {
   box-sizing: border-box;
@@ -74,12 +75,33 @@ body {
   flex-direction: column;
   min-width: 100%;
   min-height: 298vh;
+
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -2;
+}
+
+#root{
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 90%;
+
 }
 
 .canva {
   position: fixed !important; 
   inset: 0 !important; 
   background-color: #242424 !important;
+
+
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: -1;
 }
 
 .App {
@@ -140,6 +162,24 @@ body {
   flex-direction: column;
 }
 
+.App3 {
+  width: 100%;
+  height: 46vh; 
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  z-index: 2;
+  pointer-events: none;
+}
+.hero3 {
+  position: absolute;
+  bottom: 2rem;
+  left: 0rem;
+  display: flex;
+  flex-direction: column;
+}
+
 
 .name{
   margin-left: 1rem;
@@ -147,3 +187,4 @@ body {
 .works{
   margin-right: 1rem;
 }
+

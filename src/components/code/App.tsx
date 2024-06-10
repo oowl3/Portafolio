@@ -81,6 +81,12 @@ const App: React.FC = () => {
               <h3>Como ingeniero en informática, mi perfil se distingue por una combinación única de habilidades técnicas y cualidades personales que reflejan mi enfoque multifacético y mi búsqueda constante de excelencia. Mi dominio en lenguajes como JavaScript y PHP, junto con mi capacidad para abordar desafíos complejos con un pensamiento crítico y una resolución de problemas innovadora, demuestran mi competencia técnica y mi adaptabilidad en entornos tecnológicos cambiantes. </h3>
             </section>
           </div>
+
+          <div  className='App3 titillium-web-bold '>
+            <footer className='works hero'>
+                <p>© 2024 Josue Ojeda</p>
+            </footer>
+          </div>
         </>
       )}
     </>
